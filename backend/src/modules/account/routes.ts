@@ -1,9 +1,8 @@
 import { Router } from "express";
-import { AccountController } from "./controller.js";
+import { createAccountController } from "./controller.js";
 
 const router = Router();
 
-router.post("/", AccountController.createAccount);
-router.get("/:id", AccountController.getAccount);
+router.post("/", createAccountController);
 
 export default router;

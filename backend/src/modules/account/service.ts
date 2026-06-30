@@ -1,13 +1,12 @@
 import prisma from "../../config/prisma.js";
-import type { CreateAccountDTO, AccountResponse } from "./types.js";
+import type { CreateAccountInput } from "./types.js";
 
-export class AccountService {
-  // Placeholder methods for service logic
-  static async createAccount(data: CreateAccountDTO): Promise<AccountResponse> {
-    throw new Error("Method not implemented.");
-  }
+export const createAccount = async (
+  data: CreateAccountInput
+) => {
+  const account = await prisma.account.create({
+    data,
+  });
 
-  static async getAccountById(id: string): Promise<AccountResponse | null> {
-    throw new Error("Method not implemented.");
-  }
-}
+  return account;
+};
